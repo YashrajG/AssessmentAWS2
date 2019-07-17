@@ -1,0 +1,21 @@
+1. Launch Instance on AMI- Amazon Linux 2, t2 micro.
+2. In 'Configure Instance Details' -> 'Advance Details' -> 'User Data', enter script.
+3. Move on to Security Group Configuration -> add http inbound connection
+4. Review and Launch with a key pair
+
+5. Create Launch Config
+    -> select AMI, instance type, name, IAM Role, user data as above, Move on to Security groups
+    -> Add HTTP for MyIP or any custom IP of your choice
+    -> Review and Launch
+
+6. Create target group with created instances
+
+7. Create Load Balancer and assign it to target group
+
+8. Create a new Auto Scaling Group:
+    -> Select Launch config, give group name, initial size, network, subnet
+    -> In Advanced Details, check 'Recieve traffic from one or more load balancers'
+    -> Select target group
+    -> In Scaling policy Configuration, configure your policy
+    -> Review and Create Auto-Scaling Group
+
