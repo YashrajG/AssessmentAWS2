@@ -37,7 +37,7 @@ exports.handler = function(event, context, callback) {
         Body: buffer,
         Bucket: dest_bucket,
         ContentType: 'image/png',
-        Key: key,
+        Key: event.fileName,
       }).promise()
     )
     .then(() => callback(null, {

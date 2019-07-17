@@ -15,9 +15,13 @@
     	
 6. Make that file only usable by the owner:
     chmod 600 .ssh/my.key
+
+7. Add private key to other instance
+    ssh -k  .ssh/my.key
+    ssh -A ubuntu@10.0.0.X
 	
-7. Add the public key to the authorized keys in the other instance:
+8. Add the public key to the authorized keys in the other instance:
     cat ~/.ssh/id_rsa.pub | ssh -i ~/.ssh/my.key ubuntu@10.0.0.X "cat >> ~/.ssh/authorized_keys"
 
-8. You can now ssh into the other instance without a password:
+9. You can now ssh into the other instance without a password:
     ssh 10.0.0.X
